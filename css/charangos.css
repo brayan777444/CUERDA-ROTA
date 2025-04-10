@@ -1,0 +1,133 @@
+/*productos de quena*/
+
+.btn-comprar {
+    background-color: #3a91cb;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+}
+
+.btn-comprar:hover {
+    background-color: #38739a;
+}
+.precio-quena {
+    font-size: 18px;
+    color: rgb(3, 6, 3);
+    font-weight: bold;
+}
+.quena-venta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.producto-quena {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    height: 22em;
+    position: relative;
+}
+
+/* Etiqueta de descuento sobre la imagen */
+.modelo-quena {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgb(32, 29, 29);
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.producto-quena img {
+    width: 100%;
+   height: 10em;
+    border-radius: 10px;
+}
+
+/* Estilos de marca y precios */
+.marca {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+
+/*productos charangos*/
+#charangos {
+    display: none;
+    visibility: visible;
+}
+
+.btn-comprar {
+    background-color: #3a91cb;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+}
+
+.btn-comprar:hover {
+    background-color: #38739a;
+}
+.precio-charango {
+    font-size: 18px;
+    color: rgb(3, 6, 3);
+    font-weight: bold;
+}
+.charango-venta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.producto-charango {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    height: 26em;
+    position: relative;
+}
+
+/* Etiqueta de descuento sobre la imagen */
+.modelo-charango {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.producto-charango img {
+    width: 100%;
+   height: 15em;
+    border-radius: 10px;
+}
+
+/* Estilos de marca y precios */
+.marca {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}

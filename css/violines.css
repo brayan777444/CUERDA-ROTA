@@ -1,0 +1,81 @@
+/*violines*/
+#violin {
+    background: linear-gradient(to right, #f0f0f0, #e6e6e6);
+    padding: 40px;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .titulo-seccion {
+    font-size: 2.8em;
+    color: #222;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #ffe7b3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .violin-venta {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .producto-violin {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 260px;
+    height: 25em;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .producto-violin:hover {
+    transform: translateY(-10px);
+  }
+  
+  .producto-violin img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .marca {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  
+  .precio {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1em;
+  }
+  
+  .btn-comprar {
+    background-color: #c62828;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-comprar:hover {
+    background-color: #b71c1c;
+  }

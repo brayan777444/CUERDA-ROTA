@@ -1,0 +1,78 @@
+/*accesorios de instrumentos*/
+#accesorio {
+    background: linear-gradient(to right, #f7f7f7, #eaeaea);
+    padding: 40px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1400px;
+  }
+  
+  #accesorio h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ff9900, #ff5e62);
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+  
+  .accesorio-venta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .producto-accesorio {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .producto-accesorio:hover {
+    transform: translateY(-5px);
+  }
+  
+  .modelo-accesorio img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .modelo-accesorio .marca {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .precio-teclado {
+    font-size: 18px;
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  .btn-comprar {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-comprar:hover {
+    background-color: #1e8449;
+  }

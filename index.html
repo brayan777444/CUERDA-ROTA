@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/video.css">
+    <link rel="stylesheet" href="css/accesorios.css">
+    <link rel="stylesheet" href="css/charangos.css">
+    <link rel="stylesheet" href="css/guitarras.css">
+    <link rel="stylesheet" href="css/teclados.css">
+    <link rel="stylesheet" href="css/violines.css">
+    <link rel="stylesheet" href="css/descuentos.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+    <nav>
+        <ul>
+            <li>
+                <img src="imagenes/fondo.jpg" alt="imagen de"></li>
+        <li><a href="#home" onclick="mostrarInicio()">Inicio</a></li>
+        <li><a href="#servicios" onclick="mostrarServicios('servicios')">Servicios</a></li>
+        <div class="productos">
+            <a href="#">productos</a>
+            <div class="submenu">
+              <li> <a href="#charangos" onclick="mostrarCharango()">Charango instrumentos de viento</a></li> 
+                <li><a href="#guitarra" onclick="mostrarGuitarra()">Guitarras</a></li>
+               <li> <a href="#teclados" onclick="mostrarTeclados()">Teclados</a></li>
+               <li><a href="#violines" onclick="mostrarViolines()">violines</a></li> 
+               <li> <a href="#accesorios" onclick="mostrarAccesorios()">accesorios instrumentales</a></li>
+               
+            </div>
+        </div>
+       
+        <li><a href="#contacto" onclick="mostrarContacto()">Contacto</a></li>
+        <li><a href="#iniciarSesion" onclick="iniciarSesion()">iniciar Sesion</a></li>
+        <li id="nav-reporte" style="display: none;">
+          <a href="#reporteVentas" onclick="mostrarReporteDeVentas()">Reporte de Ventas</a>
+      </li>
+        
+       <li><a href="#cerrarSesion" onclick="cerrarSesion()" class="cerrarSesion">cerrar Sesion</a></li>
+  
+     </ul>
+   </nav>
+
+   <div id="reporteVentas" style="display: none; padding: 20px;">
+    <br>
+    <br>
+    <br>
+    <h2>📊 Reporte de Ventas</h2>
+    <div id="contenido-reporte"></div>
+    <button onclick="enviarReportePorWhatsApp()">Enviar Reporte por WhatsApp</button>
+    <button onclick="imprimirReporteDeVentas()">Imprimir Reporte</button>
+
+</div>
+   
+    
+   <div id="overlay" style="display: none;" onclick="cerrarSesion()"></div>
+
+   <div class="login-container" id="iniciarSesion" style="display: none;">
+    <h2>Login</h2>
+
+    <form action="login.php" method="post" onsubmit="return validar(event);">
+        <label for="username">correo electronico</label>
+        <input type="text" id="email" name="email" placeholder="email" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+
+        <label class="administrador">
+          <input type="checkbox" id="esAdmin">
+          Iniciar como administrador
+        </label>
+        <p><a href="registro.html" class="registro-link">Regístrate ya</a></p>
+        <button type="submit">Iniciar Sesion</button>
+        <button type="button" onclick="cancelar()">cancelar</button>
+        <p id="mensaje"></p>
+    </form>
+</div>
+
+   <!--carrito de compras-->
+    <div class="carro" id="carro" style="display: block;">
+        <h2>🛒 Carrito de Compras</h2>
+        <div id="lista-carrito"></div>
+        <h3>Total: <span id="total">0</span> Bs</h3>
+        <button onclick="enviarPorWhatsApp()">Enviar Pedido por WhatsApp</button>
+        <button onclick="mostrarQR()">Pagar con QR</button>
+        <button onclick="cerrarCarrito()">Cerrar</button> <!-- Botón para cerrar el carrito -->
+    </div>
+    <div id="modalQR" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+">
+    <div style="background-color: white; padding: 20px; border-radius: 10px; color: black;">
+        <h3>Escanea este QR para pagar</h3>
+        <img src="imagenes/Imagen de WhatsApp 2025-04-09 a las 00.15.43_6583219f.jpg" alt="QR de pago" style="width: 250px;">
+        <p style="margin-top: 10px;">Total: <span id="totalQR"></span> Bs</p>
+        <button onclick="cerrarQR()">Cerrar</button>
+    </div>
+</div>
+   
+    <div id="inicio">
+
+      <header>
+        <div>
+        <h1>Bienvenido a nuestra página web 
+            "LA CUERDA ROTA"</h1>
+        <p>Tienda, fabricación y mantenimiento de instrumentos</p>
+    </div>
+    </header>                            
+        <h2 class="tituloDescuento">Productos en Descuento</h2>
+        
+        <div class="productos-descuento">
+            <!-- Guitarra -->
+            <div id="guitarraDescuento" class="descuento">
+              <div class="descuento-label">🔥 Descuento</div>
+             <img id="img-guitarra" src="imagenes/yamaha c40.jpeg" alt="Guitarra en descuento">
+              <p class="marca">🎸 Yamaha C40</p>
+              <p class="precio-anterior">Antes: <span>1500bs</span></p>
+              <p class="precio-actual">Ahora: <strong>1000bs</strong></p>
+              <button class="btn-comprar" onclick="agregarDescuento('yamaha c40', 1000)">agregar al carro</button>
+              <div class="editar-productos" style="display: none;">
+                  <button onclick="habilitarEdicion('guitarraDescuento')">Editar </button>
+                  <button onclick="guardarCambios('guitarraDescuento')">Guardar Cambios</button>
+                  <input type="file" id="imagen-archivo-guitarra" accept="image/*" style="display:none;" onchange="actualizarImagen('img-guitarra', this)">
+              </div>
+          </div>
+          
+    
+            <!-- Quena -->
+            <div id="quenaDescuento" class="descuento">
+              <div class="descuento-label">🔥 Descuento</div>
+              <img id="img-quena" src="imagenes/quena artesanal.jpg" alt="Quena en descuento">
+              <p class="marca">🎶 Quena Artesanal</p>
+              <p class="precio-anterior">Antes: <span>500bs</span></p>
+              <p class="precio-actual">Ahora: <strong>300bs</strong></p>
+              <button class="btn-comprar" onclick="agregarDescuento('quena artesanal', 300)">agregar al carro</button>
+              <div class="editar-productos" style="display: none;">
+                <button onclick="habilitarEdicion('quenaDescuento')">Editar </button>
+                <button onclick="guardarCambios('quenaDescuento')">Guardar Cambios</button>
+                <input type="file" id="imagen-archivo-guitarra" accept="image/*" style="display:none;" onchange="actualizarImagen('img-quena', this)">
+              </div>
+          </div>
+          
+    
+            <!-- Pedal Nux -->
+            <div id="nuxDescuento" class="descuento">
+                <div class="descuento-label">🔥 Descuento</div>
+                <img id="img-nux" src="imagenes/pedal nux.webp" alt="Pedal Nux en descuento">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p class="marca">🎛️ Pedal Nux MG-300</p>
+                <p class="precio-anterior">Antes: <span>1500bs</span></p>
+                <p class="precio-actual">Ahora: <strong>1000bs</strong></p>
+                <button class="btn-comprar" onclick="agregarDescuento('pedal nux MG-300', 1000)">agregar al carro</button>
+                <div class="editar-productos" style="display: none;">
+                  <button onclick="habilitarEdicion('nuxDescuento')">Editar </button>
+                  <button onclick="guardarCambios('nuxDescuento')">Guardar Cambios</button>
+                  <input type="file" id="imagen-archivo-guitarra" accept="image/*" style="display:none;" onchange="actualizarImagen('img-nux', this)">
+                </div>
+            </div>
+    
+            <!-- Pedal Boss -->
+            <div id="bossDescuento" class="descuento">
+                <div class="descuento-label">🔥 Descuento</div>
+                <img id="img-boss" src="imagenes/pedal boss ds1.jpeg" alt="Pedal Boss en descuento">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p class="marca">⚡ Pedal Boss DS-1</p>
+                <p class="precio-anterior">Antes: <span>1500bs</span></p>
+                <p class="precio-actual">Ahora: <strong>1200bs</strong></p>
+                <button class="btn-comprar" onclick="agregarDescuento('pedal boss DS-1', 1200)">agregar al carro</button>
+                <div class="editar-productos" style="display: none;">
+                  <button onclick="habilitarEdicion('bossDescuento')">Editar </button>
+                  <button onclick="guardarCambios('bossDescuento')">Guardar Cambios</button>
+                  <input type="file" id="imagen-archivo-guitarra" accept="image/*" style="display:none;" onchange="actualizarImagen('img-boss', this)">
+                </div>
+            </div>
+
+  <section class="section-contenido">
+    <div class="tituloHistoria">
+      <h1>Historia de la musica Folklorica Bolviana </h1>
+    </div>
+            <p>La música folclórica boliviana se originó en las culturas prehispánicas andinas. A lo largo de la historia, se ha fusionado con influencias españolas, africanas, amazónicas e incas.
+             donde al paso de los la musica bolivia fue evolucionando llegando a hasta nuestros tiempos como un estilo mas remoto a la epoca 
+            </p>
+
+            <h2>grupos bolivianos mas sobresalientes de bolivia</h2>
+            <div class="grupo-musical">
+              <h3>Kjarkas</h3>
+              <video src="videos/Kjarkas en vivo 2020 (Pequeño amor_Kutimuy)(360P).mp4" controls></video>
+              <p>Los Kjarkas es un conjunto de música folklórica originado en Capinota, Cochabamba, Bolivia. Fue fundado el 23 de junio de 1971 por los hermanos Wilson Hermosa,​ Gonzalo Hermosa, Castel Hermosa​ y Edgar Villaroel. Alcanzaron popularidad nacional e internacional junto a los compositores: Ulises Hermosa,​ Élmer Hermosa, Edgar Villaroel, Edwin Castellanos, Fernando Torrico, Gastón Guardia y Guillermo Ponce.</p>
+            </div>
+            
+            <div class="grupo-musical">
+              <h3>Proyección</h3>
+              <video src="videos/PROYECCIÓN DE BOLIVIA - tu abandono y paloma del alma mía - (concierto virtual)(360P).mp4" controls></video>
+              <p>Se funda en Cochabamba, Bolivia oficialmente el año 1979 en la escuela kjarkas dirigida por los miembros del grupo folclórico Los Kjarkas, sin embargo la mayoría de sus integrantes fueron formados en otras academias (Colegio Eduardo Laredo y Anglo Americano). Originalmente formaron el grupo «Proyección Kjarkas»;resultado de una fusión de integrantes de dos grupos de colegio, Laredo y Anglo Americano, para ese entonces los integrantes del grupo fueron: Orlando Jiménez, Yuri Ortuño, (Fernando Torrico), Edwin Castellanos, Raúl Muriel y Mijaíl Montaño ; bajo la dirección de los hermanos Hermosa. Aunque inicialmente antes de tomar el nombre de Proyección Kjarkas era un grupo instrumental y todavía Yuri no integraba el grupo , quien cantaba ocasionalmente era Amed Silva, integrante quien no estuvo más de un año.</p>
+            </div>
+            
+            <div class="grupo-musical">
+              <h3>Kalamarka</h3>
+              <video src="videos/KALAMARKA THIKA PAPITA Pujllay(360P).mp4" controls></video>
+              <p>K'ala Marka (aimara: "ciudad de piedra") es un reconocido grupo de Bolivia de música folklórica, fundado en 1984 en la ciudad de La Paz, Bolivia.
+
+                En la actualidad, K'ala Marka es considerado uno de los grupos folclóricos más importantes de Bolivia, y disfrutan de una significativa popularidad fuera de Bolivia. Sus discos han sido certificados Oro y Platino gracias a su éxito comercial.</p>
+            </div>         
+  </section>
+        </div>
+    </div> 
+</div>
+  
+
+<div id="servicios" style="display: none;">
+  <h2>Servicios de mantenimiento de instrumentos</h2>
+
+  <div class="servicios-contenedor">
+      <!-- Servicio 1: Arreglos -->
+      <div class="servicio-item">
+          <img src="imagenes/mantener.jpg" alt="Arreglos de instrumentos">
+          <h3>Arreglos</h3>
+          <p>Se hacen arreglos y mantenimiento de los instrumentos</p>
+          <a href="https://wa.me/67607710?text=Quiero%20un%20arreglo%20y%20mantenimiento%20a%20mi%20charango" class="btn-solicitar" target="_blank">Solicitar</a>
+      </div>
+        <br>
+      <!-- Servicio 2: Fabricación de instrumentos -->
+      <div class="servicio-item">
+          <img src="imagenes/fabricacion de charangos.jpg" alt="Fabricación de instrumentos">
+          <h3>Fabricación de instrumentos</h3>
+          <p>Charango, Guitarra</p>
+          <a href="https://wa.me/67607710?text=Quiero%20una%20fabricacion%20%20personalizada%20%20de%20instrumento" class="btn-solicitar" target="_blank">Solicitar</a>
+      </div>  
+  </div>
+</div>
+
+   
+
+<div id="contacto" style="display: none;">
+  <h2>Contacto</h2>
+  <p>Para más información, contáctanos en nuestras redes sociales y visita nuestra tienda</p>
+  
+  <section class="contacto-links">
+      <!-- Facebook -->
+      <div class="contacto-item">
+          <a href="https://www.facebook.com/JatunSonQoOficial?locale=es_LA" target="_blank">
+              <img src="imagenes/facebook.avif" alt="Facebook" class="contacto-icon">
+              <p>Facebook</p>
+          </a>
+      </div>
+      
+      <!-- TikTok -->
+      <div class="contacto-item">
+          <a href="https://www.tiktok.com/@brayanhuertapillco" target="_blank">
+              <img src="imagenes/titktok.jpg" alt="TikTok" class="contacto-icon">
+              <p>TikTok</p>
+          </a>
+      </div>
+      
+      <!-- Ubicación de la tienda -->
+      <div class="contacto-item">
+          <a href="https://www.google.com/maps?q=-19.034502,-65.2565763" target="_blank">
+              <img src="imagenes/ubicacion.png" alt="Ubicación de la tienda" class="contacto-icon">
+              <p>Ubicación de nuestra tienda</p>
+          </a>
+      </div>
+      <!-- Imagen de la tienda -->
+  <div class="tienda-imagen">
+    <img src="imagenes/tienda.jpg" alt="Imagen de la tienda">
+</div>
+  </section>
+</div>
+
+
+
+    <!--accesorios-->
+
+    <div id="accesorio" style="display: none;">
+     <h1>accesrios Disponibles para tus instrumentos</h1>
+     <h1>pedales, cables, estuches, sistemas y cuerdas(charango,guitarra,violin)</h1>
+     <div class="accesorio-venta">
+        
+        <div id="gt1" class="producto-accesorio">
+          <div class="modelo-accesorio">
+            <img id="img-gt1" src="imagenes/boss gt1.jpg" alt="pedal">
+            <p class="marca">⚡ pedal boss g1 guitar multi-efevt</p> 
+            <p class="precio-teclado">Precio: <strong>2800 Bs</strong></p> 
+            <button class="btn-comprar" onclick="agregarAlCarrito('pedal boss g1 guitar multi-efevt ', 2800)">Agregar al carrito</button>
+          </div>
+        </div>
+        <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/NUX-MG-30-209.jpg" alt="pedal">
+              <p class="marca">⚡ pedal nux MG-30 multiefectos</p> 
+              <p class="precio-teclado">Precio: <strong>3000 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('pedal nux MG-30 multi-efevt ', 3000)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/g1x.jpg" alt="pedal">
+              <p class="marca">⚡ zoom g1x guitar multi-efevt</p> 
+              <p class="precio-teclado">Precio: <strong>1200 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('zoom g1x multi-efevt ', 1200)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/BOSS-GT100.jpg" alt="pedal">
+              <p class="marca">⚡ boss gt100 guitar multi-efevt</p> 
+              <p class="precio-teclado">Precio: <strong>6000 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('boss gt100 guitar multi-efevt ', 6000)">Agregar al carrito</button>
+            </div>
+          </div>
+          <!--estuches-->
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/Estuche-Guitarra.webp" alt="pedal">
+              <p class="marca">⚡ estuche rigido de guitarra</p> 
+              <p class="precio-teclado">Precio: <strong>500 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('estuche rigido de guitarra', 500)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/estuche de charango.jpg" alt="pedal">
+              <p class="marca">⚡ estuche rigido de charango</p> 
+              <p class="precio-teclado">Precio: <strong>500 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito(' estuche rigido de charango ', 500)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/estuche de teclado.webp" alt="pedal">
+              <p class="marca">⚡ estuche de teclado yamaha</p> 
+              <p class="precio-teclado">Precio: <strong>100 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('estuche de teclado yamaha ', 100)">Agregar al carrito</button>
+            </div>
+          </div>
+          <!--cables-->
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/cable de microfo xlr entrada canon.jpg" alt="pedal">
+              <p class="marca">⚡ cable de microfo xlr canon</p> 
+              <p class="precio-teclado">Precio: <strong>100 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cable de microfono xlr canon ', 100)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/cables fender plub.webp" alt="pedal">
+              <p class="marca">⚡ cable fender plub</p> 
+              <p class="precio-teclado">Precio: <strong>150 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cables fender plub', 150)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/cable kirlin plub.jpg" alt="pedal">
+              <p class="marca">⚡ cable kirlin plub</p> 
+              <p class="precio-teclado">Precio: <strong>150 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cable kirlin ', 150)">Agregar al carrito</button>
+            </div>
+          </div>
+          <!--cuerdas de guitarra, charango y violin-->
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/medina artigas.jpeg" alt="pedal">
+              <p class="marca">⚡ cuerdas de charango medina artigas</p> 
+              <p class="precio-teclado">Precio: <strong>60 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cuerdas de charango medinas artiga ', 60)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/magma.jpeg" alt="pedal">
+              <p class="marca">⚡ cuerdas de charango magma</p> 
+              <p class="precio-teclado">Precio: <strong>80 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cuerdas de charango magma', 80)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/ernie-ball-cuerdas de guitarra electrica.webp" alt="pedal">
+              <p class="marca">⚡ cuerdas ernie para guitarra electrica</p> 
+              <p class="precio-teclado">Precio: <strong>100 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cuerdas ernie para guitarra electrica ', 100)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/dadario cuerdas de guitarra.webp" alt="pedal">
+              <p class="marca">⚡ cuerdas dadario para guitarra</p> 
+              <p class="precio-teclado">Precio: <strong>70 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cuerdas dadario para guitarra ', 2000)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/cuerdas de violin alice.jpeg" alt="pedal">
+              <p class="marca">⚡ cuerdas alice para violin</p> 
+              <p class="precio-teclado">Precio: <strong>100 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('cuerdas para violin de la marca alice ', 100)">Agregar al carrito</button>
+            </div>
+          </div>
+          <!--sistemas-->
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/sistemas godin.jpg" alt="pedal">
+              <p class="marca">⚡ sistema godin</p> 
+              <p class="precio-teclado">Precio: <strong>2000 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('sistema godin ', 2000)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/fishman prefix pro blend.jpg" alt="pedal">
+              <p class="marca">⚡sistema fishman prefix pro blend original de paquete</p> 
+              <p class="precio-teclado">Precio: <strong>3000 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('sistema fishman prefix pro blend ', 3000)">Agregar al carrito</button>
+            </div>
+          </div>
+          <div class="producto-accesorio">
+            <div class="modelo-accesorio">
+              <img src="imagenes/artec-series-etn-es.jpg" alt="pedal">
+              <p class="marca">⚡ sistema artec series etn</p> 
+              <p class="precio-teclado">Precio: <strong>1500 Bs</strong></p> 
+              <button class="btn-comprar" onclick="agregarAlCarrito('sistema artec series etn ', 1500)">Agregar al carrito</button>
+            </div>
+          </div>
+     </div>
+    </div>
+       
+  
+   <!-- Violines -->
+<div id="violin" style="display: none;"> 
+ 
+  <h1 class="titulo-seccion">🎻 Violines disponibles</h1>
+  
+  <div class="violin-venta">
+    <!-- Producto 1 -->
+    <div class="producto-violin">
+      <div class="contenedor-video">
+        <img src="imagenes/gliga.jpg" alt="violin gliga">
+        <video  src="videos/SONIDO VIOLIN CHECO 2500 SOLES _violin  _musica(720P_60FPS).mp4" loop muted></video>
+      </div>   
+      
+      <p class="marca">⚡ Violin Gliga original de paquete</p> 
+      <p class="precio">Precio: <strong>2000 Bs</strong></p> 
+      <button class="btn-comprar" onclick="agregarAlCarrito('violin gliga', 2000)">Agregar al carrito</button>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="producto-violin">
+      <img src="imagenes/heritage.jpg" alt="violin heritage">
+  
+      <p class="marca">⚡ Heritage original de paquete</p> 
+      <p class="precio">Precio: <strong>10000 Bs</strong></p> 
+      <button class="btn-comprar" onclick="agregarAlCarrito('violin heritage', 10000)">Agregar al carrito</button>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="producto-violin">
+      <img src="imagenes/violin hofffer.jpeg" alt="violin hofffer">
+   
+      <p class="marca">⚡ Violin Hofffer</p> 
+      <p class="precio">Precio: <strong>5000 Bs</strong></p> 
+      <button class="btn-comprar" onclick="agregarAlCarrito('violin hofffer', 5000)">Agregar al carrito</button>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="producto-violin">
+      <img src="imagenes/CORINA-SESTETTO-1.png" alt="violin corina">
+      
+      <p class="marca">⚡ Violin Corina original de paquete</p> 
+      <p class="precio">Precio: <strong>8000 Bs</strong></p> 
+      <button class="btn-comprar" onclick="agregarAlCarrito('violin corina', 8000)">Agregar al carrito</button>
+    </div>
+  </div>
+</div>
+
+
+    <!--teclados-->
+
+    <div id="teclado" style="display: none;">
+      <br>
+      <br>
+      <br>
+        <h1>teclados disponibles de vario precios</h1>
+     <div class="teclado-venta">
+        <div class="producto-teclado" data-nombre="tecladokorg" data-precio="12000">
+            <div class="modelo-teclado">
+              <div class="contenedor-video">
+                <img src="imagenes/teclado.jpg" alt="teclado">
+                <video  src="videos/teclado korg.mp4" loop muted></video>
+              </div>    
+                <p class="marca">⚡ teclado Korg original de paquete</p> 
+                <p class="precio-teclado">Precio: <strong>12000 Bs</strong></p> 
+                <button class="btn-comprar" onclick="agregarAlCarrito('teclado Korg original de paquete', 12000)">Agregar al carrito</button> 
+            </div>
+        </div>
+      <div class="producto-teclado">
+        <div class="modelo-teclado">
+          <div class="contenedor-video">
+            <img src="imagenes/teclado alesis melody 61.jpg" alt="teclado">
+            <video  src="videos/teclado alesis.mp4" loop muted></video>
+          </div>      
+        <p class="marca">⚡ teclado alesis melody 61</p> 
+        <p class="precio-teclado">precio: <strong>5000bs</strong></p>
+        <button class="btn-comprar" onclick="agregarAlCarrito('teclado alesis melody 61', 5000)">agregar al carro</button> 
+    </div>
+  </div>
+  <div class="producto-teclado">
+    <div class="modelo-teclado">
+    <img src="imagenes/teclado alesis melody54.jpg" alt="teclado">
+    <p class="marca">⚡ teclado alesis melody54</p> 
+    <p class="precio-teclado">precio: <strong>4000bs</strong></p>
+    <button class="btn-comprar" onclick="agregarAlCarrito('teclado alesis melody54', 4000)">agrrgar al carro</button>
+</div>
+</div>
+<div class="producto-teclado">
+    <div class="modelo-teclado">
+    <img src="imagenes/teclado casio-ctk-3500.jpg" alt="teclado">
+    <p class="marca">⚡ teclado casio-ctk-3500</p> 
+    <p class="precio-teclado">precio: <strong>8000bs</strong></p>  
+    <button class="btn-comprar" onclick="agregarAlCarrito('teclado casio-ctk-3500', 8000)">agrrgar al carro</button>
+</div>
+</div>
+<div class="producto-teclado">
+    <div class="modelo-teclado">
+      <div class="contenedor-video">
+        <img src="imagenes/teclado nord stage3.jpg" alt="teclado">
+        <video  src="videos/tecaldo nord.mp4" loop muted></video>
+      </div> 
+    <p class="marca">⚡ teclado nord stage3 original de paqete</p> 
+    <p class="precio-teclado">precio: <strong>12000bs</strong></p> 
+    <button class="btn-comprar" onclick="agregarAlCarrito('teclado nord stage3', 12000)">agrrgar al carro</button> 
+</div>
+</div>
+<div class="producto-teclado">
+    <div class="modelo-teclado">
+    <img src="imagenes/teclado yamaha.webp" alt="teclado">
+    <p class="marca">⚡ teclado yamaha original de paqete</p> 
+    <p class="precio-teclado">precio: <strong>12000bs</strong></p>  
+    <button class="btn-comprar" onclick="agregarAlCarrito('teclado yamaha', 12000)">agrrgar al carro</button>
+</div>
+</div>
+<div class="producto-teclado">
+    <div class="modelo-teclado">
+    <img src="imagenes/Teclado-Sintetizador-Roland-XPS-30-RD-1024x1024.jpg" alt="teclado">
+    <p class="marca">⚡ Teclado-Sintetizador-Roland-XPS-30-RD-1024x1024 original de paqete</p> 
+    <p class="precio-teclado">precio: <strong>14000bs</strong></p>  
+    <button class="btn-comprar" onclick="agregarAlCarrito('teclado Teclado-Sintetizador-Roland-XPS-30-RD-1024x1024', 14000)">agrrgar al carro</button>
+</div>
+</div>      
+     </div>
+    </div>
+
+    <!--guitarras-->
+
+
+    <div id="guitarra" style="display: none;">
+      <br>
+      <br>
+      <br>
+        <h1>guitarras electroacustica y electricas Disponibles</h1>
+         <div class="guitarra-venta">
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra"><div class="contenedor-video">
+                  <img src="imagenes/SLG200N_800x.webp" alt="charango modelo kjarkas">
+                  <video  src="videos/No me Reproches _Bolero _queretaro _mexico _Yamaha Uso una guitarra Yamaha Silent SLG200n _musica(720P_HD).mp4" loop muted></video>
+              </div>
+                    <p class="marca">⚡ guitarra yamha silent slg200</p>
+                    <p class="precio-guitarra">precio: <strong>4000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('guitarra yamaha silent slg200', 4000)">agrrgar al carro</button>
+                </div>
+            </div>
+        
+        
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/godin.jpg" alt="charango modelo kjarkas">
+                    <video  src="videos/godin.mp4" loop muted></video>
+                  </div>                   
+                    <p class="marca">⚡ guitarra godin serie 12</p>
+                    <p class="precio-guitarra">precio: <strong>12000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('guitarra godin serie 12', 12000)">agrrgar al carro</button>
+                </div>
+            </div>
+        
+        
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/ibanez.png" alt="charango modelo kjarkas">
+                    <video  src="videos/ibanez electroacustica.mp4" loop muted></video>
+                  </div>
+                    <p class="marca">⚡ guitarra ibanez electroacustica</p>
+                    <p class="precio-guitarra">precio: <strong>2000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('guitarra ibanez electroacustica', 2000)">agrrgar al carro</button>
+                </div>
+            </div>
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/fender.jpg" alt="charango modelo kjarkas">
+                    <video isrc="videos/fender blaco.mp4" loop muted></video>
+                  </div>
+                    <p class="marca">⚡ guitarra fender electricas</p>
+                    <p class="precio-guitarra">precio: <strong>7000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('guitarra fender electricas', 7000)">agrrgar al carro</button>
+                    </a>
+                </div>
+            </div>
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/guitarra-alhambra-1c-ez.webp" alt="charango modelo kjarkas">
+                    <video  src="videos/alhambra.mp4" loop muted></video>
+                </div>
+                    <p class="marca">⚡  guitarra-alhambra-1c-ez electroacustica</p>
+                    <p class="precio-guitarra">precio: <strong>3000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('guitarra guitarra-alhambra-1c-ez', 3000)">agrrgar al carro</button>
+                </div>
+            </div>
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/electrica ibanez.jpeg" alt="charango modelo kjarkas">
+                    <video  src="videos/ibanez electrica.mp4" loop muted></video>
+                </div>
+                    <p class="marca">⚡ guitarra ibanez electricas</p>
+                    <p class="precio-guitarra">precio: <strong>10000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('teclado ibanez electricas', 10000)">agrrgar al carro</button>
+                </div>
+            </div>
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/1-guitarra-electroacustica-freeman-fra95ncet-black-208120.webp" alt="charango modelo kjarkas">
+                    <video id="yamaha-c40" src="videos/yamaha c40 Em fingerstyle improv _fingerstyle _guitar _guitarra _music _c40 _composition _improv(720P_HD).mp4" loop muted></video>
+                </div>
+                    <p class="marca">⚡ 1-guitarra-electroacustica-freeman-fra95ncet-black-208120</p>
+                    <p class="precio-guitarra">precio: <strong>3400bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('1-guitarra-electroacustica-freeman-fra95ncet-black-208120', 3400)">agrrgar al carro</button>
+                </div>
+            </div>
+            <div class="producto-guitarra">
+                <div class="modelo-guitarra">
+                  <div class="contenedor-video">
+                    <img src="imagenes/1800.webp" alt="charango modelo kjarkas">
+                    <video  src="videos/guitarra freeman.mp4" loop muted></video>
+                </div>
+                    <p class="marca">⚡ guitarra freeman frfg15 electroacustica</p>
+                    <p class="precio-guitarra">precio: <strong>2000bs</strong></p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('guitarra freeman frfg15 electroacustica', 2000)">agrrgar al carro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+ <!--productos de chanrango-->
+    <div id="charangos" style="display: none;">
+      <br>
+      <br>
+      <br>
+        <h2>Charangos Disponibles</h2>
+        <p>Variedad de charangos artesanales y personalizados.</p>
+
+         <!-- charangos -->
+          <div class="charango-venta">
+         <div class="producto-charango">
+            <div class="modelo-charango"></div>
+            <div class="contenedor-video">
+              <img src="imagenes/charango modelo kjarkas presys.jpg" alt="charango modelo kjarkas">
+              <video  src="videos/charango kjarkas con sistema.mp4" loop muted></video>
+            </div>
+           
+            <p class="marca">⚡ charango modelo kjarkas con sistema fishman presys+</p>
+            <p class="precio-charango">precio: <strong>5000bs</strong></p>
+            <button class="btn-comprar" onclick="agregarAlCarrito('charango modelo kjarkas con sistema fishman presys+', 5000)">agrrgar al carro</button>
+        </div>
+        <div class="producto-charango">
+            <div class="modelo-charango"></div>
+            <div class="contenedor-video">
+              <img src="imagenes/Charango acha.jpg" alt="charango modelo kjarkas">
+              <video  src="videos/charango acha.mp4" loop muted></video>
+            </div>
+            <p class="marca">⚡ charango modelo acha sin sistema sonido acustico</p>
+            <p class="precio-charango">precio: <strong>3000bs</strong></p>
+            <button class="btn-comprar" onclick="agregarAlCarrito('charango modelo acha sin sistema', 3000)">agrrgar al carro</button>
+        </div>
+        <div class="producto-charango">
+            <div class="modelo-charango"></div>
+            <img src="imagenes/boca de chancho.jpg" alt="charango modelo kjarkas">
+          
+            <p class="marca">⚡ charango modelo modelo normal con boca de chancho</p>
+            <p class="precio-charango">precio: <strong>400bs</strong></p>
+            <button class="btn-comprar" onclick="agregarAlCarrito('charango modelo normal con boca de chancho', 400)">agrrgar al carro</button>
+        </div>
+        <div class="producto-charango">
+            <div class="modelo-charango"></div>
+            <img src="imagenes/charango serrudo.jpg" alt="charango modelo kjarkas">
+          
+            <p class="marca">⚡ charango modelo serrudo con sistema artech</p>
+            <p class="precio-charango">precio: <strong>4000bs</strong></p>
+            <button class="btn-comprar" onclick="agregarAlCarrito('charango modelo serrudo con sistema artech', 4000)">agrrgar al carro</button>
+        </div>
+        <div class="producto-charango">
+            <div class="modelo-charango"></div>
+            <div class="contenedor-video">
+              <img src="imagenes/modelo kjarkas.jpg" alt="charango modelo kjarkas">
+              <video  src="videos/Charango KJARKAS(720P_HD).mp4" loop muted></video>
+            </div>
+                  
+            <p class="marca">⚡ charango modelo kjarkas sin sistema para el apredisaje</p>
+            <p class="precio-charango">precio: <strong>1000bs</strong></p>
+            <button class="btn-comprar" onclick="agregarAlCarrito('charango modelo kjarkas sin sistema ', 1000)">agrrgar al carro</button>
+        </div>
+    </div>
+
+    <!--quenas-->
+
+    <h2>quenas Disponibles</h2>
+        <p>Variedad de quenas artesanales y personalizados.</p>
+
+    <div class="quena-venta">
+
+        <div class="producto-quena">
+            <div class="modelo-quena">
+              <div class="contenedor-video">
+                <img src="imagenes/quena de bambu.jpg" alt="charango modelo kjarkas">
+                <video id="guitarra" src="videos/Quenas en bambú - DJeffry Music - DRZ(720P_60FPS).mp4" loop muted></video>
+              </div>
+              <br>
+              <br>
+                <p class="marca">⚡ quena de bambu en sol</p>
+                <p class="precio-quena">precio: <strong>400bs</strong></p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('quena de bambu en sol', 400)">agrrgar al carro</button>
+            </div>
+
+        </div>
+
+        <div class="producto-quena">
+            <div class="modelo-quena">
+              <div class="contenedor-video">
+                <img src="imagenes/artwork.jpeg" alt="charango modelo kjarkas">
+                <video  src="videos/Sonido del Quenacho en Do - C(360P).mp4" loop muted></video>
+              </div>
+              <br>
+              <br>
+              <br>
+                <p class="marca">⚡ quenacho en Re mayor </p>
+                <p class="precio-quena">precio: <strong>400bs</strong></p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('quenacho en Re mayor', 400)">agrrgar al carro</button>
+            </div>
+        </div>
+
+        <div class="producto-quena">
+            <div class="modelo-quena">
+              <div class="contenedor-video">
+                <img src="imagenes/quena rem.jpg" alt="charango modelo kjarkas">
+                <video  src="videos/quena en rem.mp4" loop muted></video>
+              </div>
+              <br>
+              <br>
+              <br>
+                <p class="marca">⚡ quena afinacion en rem</p>
+                <p class="precio-quena">precio: <strong>700bs</strong></p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('quena afinacion en rem', 700)">agrrgar al carro</button>
+            </div>
+        </div>
+
+        <div class="producto-quena">
+            <div class="modelo-quena">
+              <div class="contenedor-video">
+                <img src="imagenes/zamponas plasticos.jpeg" alt="charango modelo kjarkas">
+                <video  src="videos/zanpoña pvc.mp4" loop muted></video>
+              </div>
+              <br>
+              <br>
+              <br>
+                <p class="marca">⚡ zamponas de plastcos en sol</p>
+                <p class="precio-quena">precio: <strong>40bs</strong></p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('zampnas de plasticos en sol', 40)">agrrgar al carro</button>
+            </div>
+
+        </div>
+
+        <div class="producto-quena">
+            <div class="modelo-quena">
+              <div class="contenedor-video">
+                <img src="imagenes/zampnas cromaticas.jpg" alt="charango modelo kjarkas">
+                <video  src="videos/zampña cromatica.mp4" loop muted></video>
+              </div>
+                <br>
+                <br>
+                <p class="marca">⚡ zamponas cromaticas de cana fina</p>
+                <p class="precio-quena">precio: <strong>700bs</strong></p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('zampnas cromaticas de cana fina', 700)">agrrgar al carro</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+   <script src="JS/validaciones.js"></script>
+    <script src="JS/videos.js"></script>
+    <script src="JS/adminEdicion.js"></script>
+    <script src="JS/reporteVentas.js"></script>
+    <script src="JS/usuarios.js"></script>
+</body>
+</html>
+
+
