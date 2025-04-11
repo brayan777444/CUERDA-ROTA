@@ -223,7 +223,25 @@ input[type="file"] {
       max-width: 100%;
     }
   }
-  
+  /* edicion que hace el admin*/
+/* Solo muestra los botones de edición si el usuario es admin */
+.editar-productos {
+  display: none;
+}
+
+button[onclick="habilitarEdicion"] {
+  background-color: #f0ad4e;
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[onclick="habilitarEdicion"]:hover {
+  background-color: #d9534f;
+}  
+
   
   
   

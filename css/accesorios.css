@@ -76,3 +76,48 @@
   .btn-comprar:hover {
     background-color: #1e8449;
   }
+  /* Estilos responsive para la sección de accesorios */
+@media screen and (max-width: 768px) {
+  #accesorio {
+    padding: 20px 10px;
+    margin: 20px 10px;
+    border-radius: 12px;
+  }
+
+  #accesorio h1 {
+    font-size: 24px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .accesorio-venta {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .producto-accesorio {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .modelo-accesorio img {
+    height: 180px;
+  }
+
+  .modelo-accesorio .marca {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .precio-teclado {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .btn-comprar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+}

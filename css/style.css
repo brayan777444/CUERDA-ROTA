@@ -23,99 +23,6 @@ header div{
     width: 95%;
 }
 
-/* Estilo del carrito */
-.carro {
-    background-color: #f5deb3; /* Color madera clara */
-    width: 300px;
-    position: fixed;
-    top: 10%;
-    right: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    z-index: 999;
-    text-align: center;
-    border: 2px solid #8b4513; /* Bordes de madera marrón oscuro */
-    display: block; /* Asegura que el carrito esté visible */
-    font-size: 1.2em;
-}
-
-/* Título del carrito */
-.carro h2 {
-    font-family: 'Georgia', serif; /* Tipografía más tradicional */
-    font-size: 2em;
-    color: #5e3a1f; /* Color marrón cálido */
-    margin-bottom: 15px;
-}
-
-/* Lista de productos en el carrito */
-#lista-carrito {
-    background-color: #faf8e0; /* Color cálido claro para la lista */
-    border-radius: 10px;
-    padding: 10px;
-    max-height: 250px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-}
-
-/* Elementos de la lista */
-#lista-carrito p {
-    font-size: 1.1em;
-    color: #4b3f3f;
-    margin: 5px 0;
-    padding: 5px 0;
-    border-bottom: 1px solid #ddd; /* Línea sutil para separar productos */
-}
-
-/* Total en el carrito */
-h3 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #5e3a1f;
-    margin-bottom: 20px;
-}
-
-/* Botones */
-button {
-    background-color: #f1c40f; /* Color dorado cálido */
-    border: none;
-    padding: 12px 20px;
-    font-size: 1.1em;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-    background-color: #d4ac0d; /* Dorado oscuro al hacer hover */
-    transform: scale(1.05); /* Efecto de aumento en el botón */
-}
-
-button:focus {
-    outline: none; /* Elimina el borde de enfoque */
-}
-
-/* Botón cerrar */
-button {
-    background-color: #c0392b; /* Color rojo oscuro para cerrar */
-}
-
-button:hover {
-    background-color: #a93226; /* Rojo más oscuro para el hover */
-}
-
-/* Efectos al mostrar el carrito */
-@keyframes slideIn {
-    0% { right: -320px; }
-    100% { right: 10px; }
-}
-
-/* Animación para el carrito deslizable */
-.carro.mostrar {
-    animation: slideIn 0.5s ease-in-out forwards;
-}
 
 /* Fondo de la página */
 footer {
@@ -222,23 +129,7 @@ nav a:hover, .productos:hover{
     display: block;
 }
 
-.cerrarSesion {
-    position: absolute; /* Posición absoluta respecto al contenedor */
-    top: 10px;  /* Ajusta la distancia desde la parte superior */
-    right: 10px; /* Ajusta la distancia desde la parte derecha */
-    background-color: #5a4e4e; /* Rojo para el botón */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    z-index: 100; /* Asegura que esté por encima de otros elementos */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
-.cerrarSesion:hover {
-    background-color: #989184db; /* Rojo oscuro en hover */
-}
 
 
 /* Header de la página */
@@ -275,336 +166,93 @@ nav li img {
        
 }
 
-/* Sección de servicios */
-
-/* Estilo para la sección de Servicios */
-/* Estilo para la sección de Servicios */
-
-#servicios {
-    background-color: #f9f9f9;
-    padding: 40px;
-    text-align: center;
-    margin-top: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-#servicios h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 30px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Contenedor de los servicios */
-.servicios-contenedor {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-/* Estilo de cada servicio */
-.servicio-item {
-    width: 48%; /* Ocupa el 48% del ancho para que haya espacio entre los servicios */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s ease-in-out;
-}
-
-.servicio-item:hover {
-    transform: translateY(-10px); /* Efecto de hover */
-}
-
-/* Estilo de las imágenes de los servicios */
-.servicio-item img {
-    width: 100%;
-    height: 50%;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-/* Títulos de los servicios */
-.servicio-item h3 {
-    font-size: 1.8em;
-    color: #1a73e8;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-/* Descripción de los servicios */
-.servicio-item p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-/* Botón de solicitud */
-.btn-solicitar {
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-solicitar:hover {
-    background-color: #1558a4;
-    transform: scale(1.05); /* Efecto de hover */
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .servicios-contenedor {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .servicio-item {
-        width: 100%; /* En pantallas pequeñas, cada servicio ocupa el 100% */
-        margin-bottom: 20px;
-    }
-
-    #servicios h2 {
-        font-size: 2.2em;
-    }
-
-    .servicio-item h3 {
-        font-size: 1.6em;
-    }
-
-    .servicio-item p {
-        font-size: 1em;
-    }
-}
-
-/* Sección de contacto */
-#contacto {
-    background-color: #f9f9f9;
-    padding: 40px;
-    text-align: center;
-    margin-top: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-#contacto h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Arial', sans-serif;
-}
-
-#contacto p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 40px;
-    line-height: 1.5;
-}
-
-/* Estilo para los enlaces */
-.contacto-links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-/* Estilo de cada ítem de contacto */
-.contacto-item {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.contacto-item:hover {
-    transform: translateY(-10px);
-}
-
-/* Estilo de los iconos */
-.contacto-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
-
-.contacto-icon:hover {
-    transform: scale(1.2); /* Aumenta el tamaño al pasar el mouse */
-}
-
-/* Estilo de los párrafos dentro de los enlaces */
-.contacto-item p {
-    font-size: 1.2em;
-    color: #555;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Estilo para la imagen de la tienda */
-.tienda-imagen img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    margin-top: 30px;
-    border-radius: 10px;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .contacto-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contacto-item {
-        width: 80%; /* En pantallas pequeñas, los elementos ocupan más ancho */
-        margin-bottom: 20px;
-    }
-
-    #contacto h2 {
-        font-size: 2.2em;
-    }
-
-    #contacto p {
-        font-size: 1.1em;
-    }
-
-    .tienda-imagen img {
-        max-width: 100%;
-    }
-}
-
-
 /* Agregar un fondo para la página */
 body {
     background-color: #dad3d382; /* Fondo gris claro */
 }
 
-/* section dr los contactos */
+/* Estilos para pantallas pequeñas como móviles */
+@media screen and (max-width: 768px) {
+
+    /* Ajustar el cuerpo */
+    body {
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Header responsivo */
+    header {
+        height: auto;
+        padding: 20px;
+        background-size: cover;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+        padding: 0 10px;
+    }
+
+    header div {
+        width: 100%;
+    }
+
+    /* Menú de navegación */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav {
+        height: auto;
+        position: static;
+    }
+
+    nav li img {
+        width: 150px;
+        height: auto;
+        margin-right: 0;
+    }
+
+    /* Submenú se adapta al ancho */
+    .submenu {
+        min-width: 100%;
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .submenu a {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+
+    /* Footer responsivo */
+    footer {
+        padding: 10px;
+    }
+
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+
+
  
-section a{
-   
-    text-decoration: none;
-    color: #644545;
-    transition: solid white;
-    padding: 10px 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block; 
-}
 
-section a:hover{
-    background-color: #888585;
-    transform: scale(1.1);
-}
  
-/*iniviar sesion*/
-/* Overlay de fondo */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    display: none; /* Inicialmente oculto */
-    z-index: 9998; /* Asegura que esté por encima del contenido */
-}
 
-/* Contenedor del formulario de login */
-.login-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centrado absoluto */
-    width: 300px;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    z-index: 9999; /* Asegura que esté sobre el overlay */
-    display: none; /* Inicialmente oculto */
-}
 
-/* Estilo para los elementos del formulario */
-.login-container label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 95%;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 0.7rem;
-    margin-top: 1rem;
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.login-container button:hover {
-    background-color: #1b5e20;
-}
-
-/* Estilo para el enlace de registro */
-.registro-link {
-    color: #2e7d32;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.registro-link:hover {
-    text-decoration: underline;
-}
-
-/* edicion que hace el admin*/
-/* Solo muestra los botones de edición si el usuario es admin */
-.editar-productos {
-  display: none;
-}
-
-button[onclick="habilitarEdicion"] {
-  background-color: #f0ad4e;
-  padding: 10px 15px;
-  border: none;
-  color: white;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button[onclick="habilitarEdicion"]:hover {
-  background-color: #d9534f;
-}  
 
 
   

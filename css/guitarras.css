@@ -55,3 +55,37 @@
     font-weight: bold;
     margin: 5px 0;
 }
+
+@media screen and (max-width: 768px) {
+    .guitarra-venta {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+  
+    .producto-guitarra {
+      width: 90%;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .producto-guitarra img {
+      height: auto;
+      max-height: 200px;
+    }
+  
+    .precio-guitarra {
+      font-size: 1.2em;
+    }
+  
+    .marca {
+      font-size: 1em;
+    }
+  
+    .btn-comprar {
+      font-size: 1em;
+      padding: 8px;
+      width: 100%;
+    }
+  }
+  

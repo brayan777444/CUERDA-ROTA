@@ -1,0 +1,141 @@
+/* Sección de contacto */
+#contacto {
+    background-color: #f9f9f9;
+    padding: 40px;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#contacto h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+}
+
+#contacto p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+/* Estilo para los enlaces */
+.contacto-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Estilo de cada ítem de contacto */
+.contacto-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contacto-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilo de los iconos */
+.contacto-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.contacto-icon:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Estilo de los párrafos dentro de los enlaces */
+.contacto-item p {
+    font-size: 1.2em;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilo para la imagen de la tienda */
+.tienda-imagen img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+section a{
+   
+    text-decoration: none;
+    color: #644545;
+    transition: solid white;
+    padding: 10px 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block; 
+}
+
+section a:hover{
+    background-color: #888585;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+    #contacto {
+      padding: 20px;
+    }
+  
+    #contacto h2 {
+      font-size: 1.8em;
+    }
+  
+    #contacto p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+  
+    .contacto-links {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .contacto-item {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .contacto-icon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .contacto-item p {
+      font-size: 1em;
+    }
+  
+    .tienda-imagen img {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  
+    section a {
+      font-size: 1em;
+      padding: 8px 12px;
+    }
+  }
+  

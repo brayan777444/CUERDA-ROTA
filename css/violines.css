@@ -1,81 +1,142 @@
-/*violines*/
+/* Estilo general para la sección de Violines */
 #violin {
-    background: linear-gradient(to right, #f0f0f0, #e6e6e6);
-    padding: 40px;
-    border-radius: 12px;
-    margin: 40px auto;
-    max-width: 1200px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #f0f0f0, #e6e6e6);
+  padding: 40px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de la sección */
+.titulo-seccion {
+  font-size: 2.8em;
+  color: #222;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #ffe7b3;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de los productos */
+.violin-venta {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Cada producto de violín */
+.producto-violin {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 260px;
+  height: 25em;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre el producto */
+.producto-violin:hover {
+  transform: translateY(-10px);
+}
+
+/* Imagen de cada producto */
+.producto-violin img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Marca del producto */
+.marca {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/* Precio del producto */
+.precio {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+/* Botón de compra */
+.btn-comprar {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Cambio de color al pasar el ratón por el botón */
+.btn-comprar:hover {
+  background-color: #b71c1c;
+}
+
+/* Media Queries para dispositivos móviles */
+
+/* Para pantallas pequeñas (como teléfonos móviles) */
+@media (max-width: 768px) {
+  #violin {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 100%; /* Asegura que ocupe todo el ancho en pantallas pequeñas */
   }
-  
+
   .titulo-seccion {
-    font-size: 2.8em;
-    color: #222;
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background-color: #ffe7b3;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    font-size: 2em; /* Reducir el tamaño del título */
+    padding: 15px;
   }
-  
+
   .violin-venta {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column; /* Apilar los productos en una columna */
+    align-items: center; /* Centrar los productos */
   }
-  
+
   .producto-violin {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 260px;
-    height: 25em;
-    text-align: center;
-    transition: transform 0.3s ease;
+    width: 100%; /* Hacer que cada producto ocupe todo el ancho disponible */
+    max-width: 300px; /* Limitar el tamaño máximo del producto */
+    margin-bottom: 20px; /* Añadir espacio entre los productos */
   }
-  
-  .producto-violin:hover {
-    transform: translateY(-10px);
-  }
-  
+
   .producto-violin img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    height: 150px; /* Reducir el tamaño de las imágenes */
   }
-  
-  .marca {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.1em;
-  }
-  
-  .precio {
-    color: #555;
-    margin-bottom: 15px;
-    font-size: 1em;
-  }
-  
+
   .btn-comprar {
-    background-color: #c62828;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    padding: 12px 20px; /* Aumentar el tamaño del botón en dispositivos móviles */
+    font-size: 1.2em; /* Aumentar el tamaño de la fuente del botón */
   }
-  
-  .btn-comprar:hover {
-    background-color: #b71c1c;
+}
+
+/* Para pantallas de escritorio (más grandes que 768px) */
+@media (min-width: 769px) {
+  #violin {
+    padding: 40px;
   }
+
+  .violin-venta {
+    flex-direction: row; /* Disposición horizontal de los productos */
+  }
+
+  .producto-violin {
+    width: 260px; /* Mantener el tamaño original de los productos */
+    height: 25em; /* Mantener el tamaño de los productos */
+  }
+}

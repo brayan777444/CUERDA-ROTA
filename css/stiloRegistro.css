@@ -102,3 +102,35 @@ body {
     color: red;
     margin-top: 10px;
 }
+@media screen and (max-width: 768px) {
+    /* Ajuste del contenedor principal */
+    .registro-container {
+        padding: 2rem; /* Menos padding en pantallas pequeñas */
+        width: 90%; /* Ancho máximo del contenedor */
+        margin: 0 auto; /* Centrado en la pantalla */
+    }
+
+    /* Ajuste de los inputs */
+    .registro-container input[type="email"],
+    .registro-container input[type="password"] {
+        width: 100%; /* Los campos ocupan todo el ancho disponible */
+        font-size: 1rem; /* Asegura que el texto sea legible */
+    }
+
+    /* Botón de registro */
+    .registro-container button {
+        padding: 1rem; /* Más espacio en el botón para facilidad de clic */
+        font-size: 1.1rem; /* Tamaño adecuado para móviles */
+    }
+
+    /* Enlace de registro */
+    .registro-container .registro-link {
+        font-size: 1.1rem; /* Tamaño ligeramente mayor para mayor legibilidad */
+    }
+
+    /* Ajuste de la parte del mensaje de error o éxito */
+    #mensaje {
+        font-size: 0.9rem; /* Más pequeño en pantallas pequeñas */
+    }
+}
+
